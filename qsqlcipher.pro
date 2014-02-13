@@ -19,6 +19,7 @@ TARGET = qsqlcipher
 
 isEmpty(QT_SRCDIR):QT_SRCDIR = $$[QT_INSTALL_PREFIX]
 !exists($$QT_SRCDIR/src) {
+    message("Could not find Qt source in " $$QT_SRCDIR/src)
     error("You need to set QT_SRCDIR = /path/to/qt/source in .qmake.conf")
 }
 
