@@ -39,7 +39,7 @@
 **
 ****************************************************************************/
 
-#include <qsqldriverplugin.h>
+#include <QtSql/QSqlDriverPlugin>
 #include <qstringlist.h>
 #include "qsql_sqlite_p.h"
 

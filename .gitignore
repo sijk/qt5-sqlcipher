@@ -1,1 +1,29 @@
+# C++ objects and libs
+
+*.slo
+*.lo
+*.o
+*.a
+*.la
+*.lai
+*.so
+*.so.*
+*.dll
+*.dylib
+
+# Qt-es
+
+*.pro.user
+*.pro.user.*
+moc_*.cpp
+qrc_*.cpp
+*.moc
+Makefile
+*-build-*
+
+# Project specific
+
 .qmake.conf
+bin/
+lib/
+include/
