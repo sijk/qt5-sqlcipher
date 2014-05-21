@@ -1,3 +1,6 @@
 [submodule "sqlcipher"]
 	path = sqlcipher
 	url = https://github.com/sqlcipher/sqlcipher.git
+[submodule "qtbase"]
+	path = qtbase
+	url = https://git.gitorious.org/qt/qtbase.git
