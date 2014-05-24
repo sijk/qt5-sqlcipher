@@ -18,13 +18,14 @@ SQLITE_DEFINES = SQLITE_OMIT_LOAD_EXTENSION SQLITE_OMIT_COMPLETE \
 TARGET = qsqlcipher
 
 isEmpty(QT_SRCDIR):QT_SRCDIR = qtbase
-!exists($$QT_SRCDIR/src/sql/drivers/sqlite) {
-    error("Could not find qsql_sqlite in" $$QT_SRCDIR/src/sql/drivers/sqlite \
-          ": You need to update your git submodules or set QT_SRCDIR = /path/to/qt/source in .qmake.conf")
-}
 
 DRIVER_SRCDIR = $$QT_SRCDIR/src/sql/drivers/sqlite
 PLUGIN_SRCDIR = $$QT_SRCDIR/src/plugins/sqldrivers
+
+!exists($$DRIVER_SRCDIR) {
+    error("Could not find Qt source in" $$QT_SRCDIR/src \
+          ": You need to update your git submodules or set QT_SRCDIR = /path/to/qtbase in .qmake.conf")
+}
 
 INCLUDEPATH += $$DRIVER_SRCDIR
 
