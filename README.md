@@ -34,6 +34,19 @@ Follow [Qt's plugin deployment guide](http://doc.qt.io/qt-5/deployment-plugins.h
 In short, put the plugin at ``sqldrivers/libqsqlcipher.so`` relative to your
 executable.
 
+
+## Static linking
+
+You can also build the plugin statically by passing ``-DSTATIC=ON`` to CMake.
+When you build your application which uses the static plugin, you'll need to
+include the line ``Q_IMPORT_PLUGIN(QSQLCipherDriverPlugin);`` in one of your
+source files and define ``QT_STATICPLUGIN`` at compile time. And link to the
+static plugin, of course.
+
+Note that setting ``-DSTATIC=ON`` only builds *this plugin* as a static library.
+If you also want to link to static versions of Qt and/or SQLCipher, it's up to
+you to make sure CMake finds static versions of those libraries.
+
 -----
 
 ## Old version

@@ -13,7 +13,17 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/sqldrivers)
 
-add_library(qsqlcipher MODULE
+option(STATIC "Build plugin as a static library" OFF)
+if(STATIC)
+    set(LIBTYPE STATIC)
+    add_definitions(-DQT_STATICPLUGIN)
+    add_subdirectory(test-static)
+else()
+    set(LIBTYPE MODULE)
+    add_subdirectory(test-shared)
+endif()
+
+add_library(qsqlcipher ${LIBTYPE}
     smain.cpp
     qt-private/qsql_sqlite.cpp
 )
@@ -28,4 +38,3 @@ target_link_libraries(qsqlcipher
     ${SQLCIPHER_LIBRARIES}
 )
 
-add_subdirectory(test)
