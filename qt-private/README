@@ -1,0 +1,3 @@
+The files in this directory were copied directly from src/sql/drivers/sqlite/
+in the qtbase repository. Licensing information is provided at the top of
+each file.
