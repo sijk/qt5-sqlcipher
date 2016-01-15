@@ -98,7 +98,7 @@ static QSqlError qMakeError(sqlite3 *access, const QString &descr, QSqlError::Er
 {
     return QSqlError(descr,
                      QString(reinterpret_cast<const QChar *>(sqlite3_errmsg16(access))),
-                     type, QString::number(errorCode));
+                     type, errorCode);
 }
 
 class QSQLiteResultPrivate;
@@ -131,7 +131,7 @@ private:
 class QSQLiteDriverPrivate : public QSqlDriverPrivate
 {
 public:
-    inline QSQLiteDriverPrivate() : QSqlDriverPrivate(), access(0) { dbmsType = QSqlDriver::SQLite; }
+    inline QSQLiteDriverPrivate() : QSqlDriverPrivate(), access(0) { dbmsType = QSqlDriverPrivate::SQLite; }
     sqlite3 *access;
     QList <QSQLiteResult *> results;
 };
