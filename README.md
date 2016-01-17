@@ -47,6 +47,14 @@ Note that setting ``-DSTATIC=ON`` only builds *this plugin* as a static library.
 If you also want to link to static versions of Qt and/or SQLCipher, it's up to
 you to make sure CMake finds static versions of those libraries.
 
+
+## Tests
+
+Some basic tests are included - run ``make test``. Note that while pretty much
+any C++ compiler can build the actual plugin, the tests require support for
+C++14. If you have an old compiler you can pass ``-DBUILD_TESTING=OFF`` to CMake
+to skip building the tests.
+
 -----
 
 ## Old version

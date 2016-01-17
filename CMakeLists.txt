@@ -17,10 +17,10 @@ option(STATIC "Build plugin as a static library" OFF)
 if(STATIC)
     set(LIBTYPE STATIC)
     add_definitions(-DQT_STATICPLUGIN)
-    add_subdirectory(test-static)
+    set(TEST_DIR test-static)
 else()
     set(LIBTYPE MODULE)
-    add_subdirectory(test-shared)
+    set(TEST_DIR test-shared)
 endif()
 
 add_library(qsqlcipher ${LIBTYPE}
@@ -38,3 +38,7 @@ target_link_libraries(qsqlcipher
     ${SQLCIPHER_LIBRARIES}
 )
 
+include(CTest)
+if(BUILD_TESTING)
+    add_subdirectory(${TEST_DIR})
+endif()
