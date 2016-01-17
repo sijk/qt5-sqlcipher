@@ -1,3 +1,7 @@
 The files in this directory were copied directly from src/sql/drivers/sqlite/
 in the qtbase repository. Licensing information is provided at the top of
 each file.
+
+If you build this plugin against a Qt version other than that stated in
+../README.md, you may need to replace these files with the ones from that
+version of Qt.
